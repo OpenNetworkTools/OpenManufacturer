@@ -24,9 +24,10 @@
         }
 
         public function getConfigFile(){
+            return $this->configFile;
         }
 
-        public function loadConfigFile($filename, $ignoreComment = false, $ignoreSymbole = array()){
+        public function loadConfigFile($filename, $ignoreComment = false, $ignoreSymbole = array("")){
             try {
                 $fh = fopen($filename, "r");
                 if(!$fh) throw new \Exception();
