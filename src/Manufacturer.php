@@ -27,9 +27,31 @@
         }
 
         public function loadConfigFile($filename, $ignoreComment = false, $ignoreSymbole = array()){
+            try {
+                $fh = fopen($filename, "r");
+                if(!$fh) throw new \Exception();
+                while(!feof($fh)){
+                    $line = fgets($fh, 256);
+                    if($ignoreComment == true && in_array($line[0], $ignoreSymbole));
+                    else $this->configFile[] = $line;
+                }
+                $this->configCoverage->setSize(sizeof($this->configFile));
+                $this->configCoverage->setConfigFile($this->configFile);
+            } catch (\Exception $e){
+                throw new \Exception();
+            }
         }
 
         public function saveConfigFile($filename){
+            try {
+                $fh = fopen($filename, "w+");
+                if(!$fh) throw new \Exception();
+                foreach ($this->getConfigFile() as $v){
+                    fputs($fh, $v."\n");
+                }
+            } catch (\Exception $e){
+                throw new \Exception();
+            }
         }
 
         public function setConfigFile($configFile){
