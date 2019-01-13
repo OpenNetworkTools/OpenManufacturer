@@ -8,7 +8,7 @@
             "email": "tchevalleraud@interdata.fr"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "OpenNetworkTools\\": "src/",
