@@ -35,8 +35,6 @@
                     if($ignoreComment == true && in_array($line[0], $ignoreSymbole));
                     else $this->configFile[] = $line;
                 }
-                $this->configCoverage->setSize(sizeof($this->configFile));
-                $this->configCoverage->setConfigFile($this->configFile);
             } catch (\Exception $e){
                 throw new \Exception();
             }
