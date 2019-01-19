@@ -21,6 +21,7 @@
         }
 
         public function addConfigFile($line){
+            $this->configFile[] = $line;
         }
 
         public function getConfigFile(){
